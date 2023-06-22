@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            background-color: aqua;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+        #div2{
+            background-color: tomato;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+        #div3{
+            background-color: purple;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+        }
+
+        #finish{
+            width: 4px;
+            height: 400px;
+            background-color: black;
+            position: fixed;
+            left: 1300px;
+        }
+    </style>
+</head>
+<body>
+    <hr id="finish">
+    <div id="div1">
+    <button id="btn1">buton 1</button>
+
+    </div>
+    <hr>
+    <div id="div2">
+    <button id="btn2">buton 2</button>
+
+    </div>
+    <hr>
+    <div id="div3">
+    <button id="btn3">buton 3</button>
+
+    </div>
+
+    <div>
+        <button onclick="start()">Start</button>
+    </div>
+
+</body>
+
+<script>
+
+    function start()
+    {
+    let left1 = 0;
+    let left2 = 0;
+    let left3 = 0;
+    let finish = 1300;
+    
+  //her saniyede 1 ile 1000 arasında bir sayı üretiyor.
+   let interval = setInterval(() => {
+    let randomNumber1 = Math.floor(Math.random()*90);
+    let randomNumber2 = Math.floor(Math.random()*90);
+    let randomNumber3 = Math.floor(Math.random()*90);
+
+    left1 = left1 + randomNumber1;
+    left2 = left2 + randomNumber2;
+    left3 = left3 + randomNumber3;
+
+    if(left1>finish || left2>finish || left3 > finish)
+    {
+        clearInterval(interval)
+    }
+
+    document.getElementById('btn1').style.marginLeft = left1 + "px";
+    document.getElementById('btn2').style.marginLeft = left2 + "px";
+    document.getElementById('btn3').style.marginLeft = left3 + "px";
+
+  }, 200);
+    }
+
+
+    
+</script>
+</html>
